@@ -16,3 +16,10 @@ http://stackoverflow.com/questions/10221101/print-json-array-steam-web-api
 Key: 69058F1D9742DD4665510ADA5E8E45A1
 https://developer.valvesoftware.com/wiki/Steam_Web_API#GetFriendList_.28v0001.29
 
+/home :
+  global stats, select game, insert steam_id
+
+/market: weapons/:id/skins
+   -bd weapons
+
+/account:
