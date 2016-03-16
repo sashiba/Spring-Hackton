@@ -1,13 +1,15 @@
 <h1><%= @profile['personaname'] %></h1>
 <p>
+Steam ID: <%= @profile['steamid']%><br>
 <%= link_to "Profile on steam", @profile['profileurl'] %><br>
 Status: <%= @profile['personastate'] %><br>
 Country code: <%= @profile['loccountrycode'] %><br>
 Last online: <%= DateTime.strptime(@profile['lastlogoff'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
 Account created at: <%= DateTime.strptime(@profile['timecreated'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
 <%= image_tag (@profile['avatarfull']) %><br>
-Friends: <%= @profile_friends.count %>
+Friends: <%= @profile_friends.count %><br>
+Banned: <%= @profile_bans['VACBanned'] %><br>
+Recently played: <%= @profile_recent[0]['name'] %>
 </p>
-<%= @profile['steamid']%>
 
-<%= link_to "Change steam id", home_path, method: :delete  %>
+<%= link_to "Change Steam ID", home_path, method: :delete  %>
