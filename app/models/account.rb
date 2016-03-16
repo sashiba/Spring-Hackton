@@ -6,7 +6,6 @@ class Account
   # 570 -dota
   
   def self.get_player_summary(steam_id)
-    steam_id = "76561198017513304"
    url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=69058F1D9742DD4665510ADA5E8E45A1&steamids=#{steam_id}"
    response = RestClient.get(url)
    JSON::parse(response)['response']['players'][0]
@@ -25,7 +24,6 @@ class Account
   end
 
   def self.get_friends_list(steam_id)
-    steam_id = "76561198017513304"
     url = "http://api.steampowered.com/ISteamUser/GetFriendList/v0001/?key=69058F1D9742DD4665510ADA5E8E45A1&steamid=#{steam_id}&relationship=friend"
     response = RestClient.get(url)
     JSON::parse(response)['friendslist']['friends']
