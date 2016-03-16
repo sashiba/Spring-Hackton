@@ -24,3 +24,4 @@ https://developer.valvesoftware.com/wiki/Steam_Web_API#GetFriendList_.28v0001.29
 <body background = "http://global-offensive.com/wp-content/uploads/sites/2/2014/02/J3jrEQs.jpg">
 
 /account:
+https://wiki.teamfortress.com/wiki/Category:WebAPI
