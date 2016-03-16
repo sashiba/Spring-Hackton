@@ -1,11 +1,21 @@
 class AccountsController < ApplicationController
+  before_action :require_steam_id
+
   def index
-    @news_cs = Account.get_news_for_app(730)
-    @news_dota = Account.get_news_for_app(570)
   end
 
   def profile
-    @profile = Account.get_player_summary('76561197960435530')
+    @profile = Account.get_player_summary(session[:steam_id])
     @profile['personastate'] = Account.get_persona_state(@profile['personastate'])
+    @profile_friends = Account.get_friends_list(session[:steam_id])
+  end
+
+  private
+
+  def require_steam_id
+    unless entered_id?
+      flash[:danger] = 'Please enter your steam id.'
+      redirect_to home_url
+    end
   end
 end

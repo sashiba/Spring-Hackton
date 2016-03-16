@@ -5,5 +5,9 @@ Status: <%= @profile['personastate'] %><br>
 Country code: <%= @profile['loccountrycode'] %><br>
 Last online: <%= DateTime.strptime(@profile['lastlogoff'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
 Account created at: <%= DateTime.strptime(@profile['timecreated'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
-<%= image_tag (@profile['avatarfull']) %>
+<%= image_tag (@profile['avatarfull']) %><br>
+Friends: <%= @profile_friends.count %>
 </p>
+<%= @profile['steamid']%>
+
+<%= link_to "Change steam id", home_path, method: :delete  %>

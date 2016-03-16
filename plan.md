@@ -23,3 +23,4 @@ https://developer.valvesoftware.com/wiki/Steam_Web_API#GetFriendList_.28v0001.29
    -bd weapons
 
 /account:
+https://wiki.teamfortress.com/wiki/Category:WebAPI

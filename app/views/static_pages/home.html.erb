@@ -1,0 +1,33 @@
+<% unless session[:steam_id] %>
+  <%= form_tag('/') do %>
+    <%= text_field_tag :steam_id %>
+    <%= submit_tag "Submit" %>
+  <% end %>
+<% end %>
+
+Current cs:go players: <%= @current_players_cs %><br>
+Current dota2 players: <%= @current_players_dota %>
+
+<div>
+  <h2>Cs:GO news</h2>
+  <% @news_cs.each do |new| %>
+    <p>
+    <h4><%= new['title'] %></h4>
+    <%=  render inline: new['contents'] %><br>
+    <%= link_to "Full article", new['url'] %><br>
+    <%= DateTime.strptime(new['date'].to_s, '%s').to_formatted_s(:long_ordinal) %>
+    </p>
+  <% end %>
+</div>
+
+<div>
+  <h2>Dota2 news</h2>
+  <% @news_dota.each do |new| %>
+    <p>
+    <h4><%= new['title'] %></h4>
+    <%= render inline: new['contents'] %><br>
+    <%= link_to "Full article", new['url'] %><br>
+    <%= DateTime.strptime(new['date'].to_s, '%s').to_formatted_s(:long_ordinal) %>
+    </p>
+  <% end %>
+</div>
