@@ -1,4 +1,10 @@
- <%= button_to "Weapons", weapons_path, method: :get, class: 'btn btn-custom' %>
+<% unless flash[:danger].nil? %>
+  <div class='alert alert-danger'>
+    <%= flash[:danger] %>
+  </div>
+<% end %>
+
+<%= button_to "Weapons", weapons_path, method: :get, class: 'btn btn-custom' %>
 
 <div class = "row">
   <div class ='col-md-6'>
@@ -49,4 +55,6 @@
   </div>
   <% else %>
     <%= link_to "Change Steam ID", home_path, method: :delete  %>
+    <br>
+    <%= link_to "Profile", 'accounts/profile' %>
 <% end %>
