@@ -1,14 +1,45 @@
-<div class="row">
+	<div class="row">
   <%= link_to "Home", home_url %>
 </div>
 
 <div class="row">
   <h3>Rifles</h3>
-  <% @weapons.each do |weapon| %>
+  <% @weapons.select { |w| w.category == 'rifle' }.each do |weapon| %>
     <A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
   <% end %>
 </div>
 
 <div class="row">
-  <h3>Knife</h3>
+    <h3>Sniper rifles</h3>
+  <% @weapons.select { |w| w.category == 'sniper rifle' }.each do |weapon| %>
+    <A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
+  <% end %>
+</div>
+
+<div class="row">
+    <h3>SMGs</h3>
+  <% @weapons.select { |w| w.category == 'smg' }.each do |weapon| %>
+    <A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
+  <% end %>
+</div>
+
+<div class="row">
+    <h3>Heavy</h3>
+  <% @weapons.select { |w| w.category == 'heavy' }.each do |weapon| %>
+    <A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
+  <% end %>
+</div>
+
+<div class="row">
+    <h3>Pistols</h3>
+  <% @weapons.select { |w| w.category == 'pistol' }.each do |weapon| %>
+    <A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
+  <% end %>
+</div>
+
+<div class="row">
+    <h3>Melee</h3>
+  <% @weapons.select { |w| w.category == 'melee' }.each do |weapon| %>
+    <A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
+  <% end %>
 </div>
