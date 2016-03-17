@@ -7,4 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
   Weapon.create(name: 'ak47', picture: 'http://vignette2.wikia.nocookie.net/cswikia/images/7/79/Ak47hud_csgo.png/revision/latest?cb=20150530195803')
-  Weapon.create(name: 'm4a1s', picture: 'http://vignette2.wikia.nocookie.net/cswikia/images/3/39/M4a1-s.png/revision/latest?cb=20130824215315')
+  Weapon.create(name: 'm4a1s', picture: 'http://vignette2.wikia.nocookie.net/cswikia/images/3/39/M4a1-s.png/revision/latest?cb=20130824215315') 
+
+  Skin.create(name: 'Vulcan', picture: 'https://csgostash.com/img/skins/s654fn.png', weapon_id: 1);
+  Skin.create(name: 'Wasteland Rebel', picture: 'https://csgostash.com/img/skins/s495fn.png', weapon_id: 1);
+  Skin.create(name: 'Fuel Injector', picture: 'https://csgostash.com/img/skins/s720fn.png', weapon_id: 1);
+  Skin.create(name: 'Golden Coil', picture: 'https://csgostash.com/img/skins/s657fn.png', weapon_id: 2);
+  Skin.create(name: 'Hyper Beast', picture: 'https://csgostash.com/img/skins/s554fn.png', weapon_id: 2);
+  Skin.create(name: 'Cyrex', picture: 'https://csgostash.com/img/skins/s393.png', weapon_id: 2);

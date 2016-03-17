@@ -8,7 +8,7 @@
     <% @weapons.each do |weapon| %>
         <tr>
           <td>
-        	<A HREF="/weapons/ak47"><%= image_tag(weapon.picture) %></A>
+        	<A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
           </td>
         </tr>
     <% end %>
