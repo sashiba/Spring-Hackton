@@ -1,0 +1,16 @@
+<table border="0">
+  <tr>
+    <th>Rifles</th>
+    <th>Knife</th>
+  </tr>
+
+  <tbody>
+    <% @weapons.each do |weapon| %>
+        <tr>
+          <td>
+        	<A HREF="/weapons/ak47"><%= image_tag(weapon.picture) %></A>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :tests
 
   resources :markets
-  get '/weapons/ak47' => 'weapons#ak47'
-   get '/weapons/m4a1s' => 'weapons#m4a1s'
+  get 'weapons/ak47' => 'weapons#ak47'
+  resources :weapons
 
 
   resources :accounts do
