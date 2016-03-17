@@ -3,7 +3,11 @@
     <% @weapon.skins.each do |skin| %>
         <tr>
           <td>
-        	<%= image_tag(skin.picture) %>
+          <%= image_tag(skin.picture) %><%= skin.name %>
+  	       <% url = "http://steamcommunity.com/market/priceoverview" %>
+  	       <% skin_info = RestClient.get(url,{:params => {:country => 'DE', :currency => 1, :appid => 730, :market_hash_name => 'AK-47 | Vulcan (Factory New)'}}) %> 
+			     Starting at : <%= JSON::parse(skin_info)['lowest_price'] %>
+        	</br>
           </td>
         </tr>
     <% end %>
