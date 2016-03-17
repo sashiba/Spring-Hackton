@@ -28,4 +28,16 @@ class Account
     response = RestClient.get(url)
     JSON::parse(response)['friendslist']['friends']
   end
+
+  def self.bans(steam_id)
+    req_url ="http://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=69058F1D9742DD4665510ADA5E8E45A1&steamids=#{steam_id}"
+    response = RestClient.get(req_url)
+    JSON.parse(response)['players'][0]
+  end
+
+  def self.recent(steam_id)
+    req_url = "http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=69058F1D9742DD4665510ADA5E8E45A1&steamid=#{steam_id}&format=json"
+    response = RestClient.get(req_url)
+    JSON.parse(response)['response']['games']
+  end
 end
