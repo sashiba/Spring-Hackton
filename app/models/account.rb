@@ -2,7 +2,6 @@ class Account
 
   API_KEY = '69058F1D9742DD4665510ADA5E8E45A1'
 
-  # 730 - cs
   # 570 - dota
   
   def self.get_player_summary(steam_id)
