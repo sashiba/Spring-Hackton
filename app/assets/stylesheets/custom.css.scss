@@ -76,7 +76,28 @@ input {
 
 
 .row {
-  width: 95%;
-  padding-right: 20px;
-  padding-left: 20px;
+  width: 100%;
+  padding-right: 0px;
+  padding-left: 30px;
 }
+
+.btn.btn-custom {
+  background-color: #337ab7;
+  color: white;
+  text-align: center;
+  width: 400px;
+  height: 100px;
+  margin: auto;
+  display: flex;
+}
+
+.btn.btn-custom:hover {
+    background-image: image-url('cs.png');
+    background-position: center;
+    color: trasparent;
+    visibility: none;
+
+    text-indent: 200%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
