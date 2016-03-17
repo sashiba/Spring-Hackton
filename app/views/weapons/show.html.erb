@@ -7,7 +7,6 @@
   <% @weapon.skins.each do |skin| %>
     <div class='col-md-3'>
     <% url = "http://steamcommunity.com/market/priceoverview" %>
-       <% skin_info = RestClient.get(url,{:params => {:country => 'DE', :currency => 1, :appid => 730, :market_hash_name => 'AK-47 | Vulcan (Factory New)'}}) %> 
        <% market_hash = params[:name].upcase + ' | ' + skin.name + " (Factory New)" %>
        <% skin_info = RestClient.get(url,{
          :params => {:country => 'DE',
