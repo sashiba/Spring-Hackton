@@ -1,16 +1,18 @@
-<h1><%= @profile.personastate %></h1>
-<p>
-Steam ID: <%= @profile.summary['steamid']%><br>
-<%= link_to "Profile on steam", @profile.summary['profileurl'] %><br>
-Status: <%= @profile.summary['personastate'] %><br>
-Country code: <%= @profile.summary['loccountrycode'] %><br>
-Last online: <%= DateTime.strptime(@profile.summary['lastlogoff'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
-Account created at: <%= DateTime.strptime(@profile.summary['timecreated'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
-<%= image_tag (@profile.summary['avatarfull']) %><br>
-Friends: <%= @profile.friends.count %><br>
-Banned: <%= @profile.bans['VACBanned'] %><br>
-Recently played: <%= @profile.recent[0]['name'] %>
-</p>
+<h1><%= @profile.summary['personaname'] %></h1>
+<div class='col-md-8'>
+  Steam ID: <%= @profile.summary['steamid']%><br>
+  <%= link_to "Profile on steam", @profile.summary['profileurl'] %><br>
+  Status: <%= @profile.personastate %><br>
+  Country code: <%= @profile.summary['loccountrycode'] %><br>
+  Last online: <%= DateTime.strptime(@profile.summary['lastlogoff'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
+  Account created at: <%= DateTime.strptime(@profile.summary['timecreated'].to_s, '%s').to_formatted_s(:long_ordinal) %><br>
+  Friends: <%= @profile.friends.count %><br>
+  Banned: <%= @profile.bans['VACBanned'] %><br>
+  Recently played: <%= @profile.recent[0]['name'] %>
+</div>
+<div class='col-md-4'>
+  <%= image_tag (@profile.summary['avatarfull']) %><br>
+</div>
 
 <div class='col-md-6'>
   <%= link_to "Change Steam ID", home_path, method: :delete  %>
