@@ -1,10 +1,13 @@
 class Account
+  include ActiveModel::Model
+
+  attr_accessor :friends, :bans, :recent, :personastate, :summary
 
   API_KEY = '69058F1D9742DD4665510ADA5E8E45A1'
 
   # 730 - cs
   # 570 -dota
-  
+
   def self.get_player_summary(steam_id)
    url = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=69058F1D9742DD4665510ADA5E8E45A1&steamids=#{steam_id}"
    response = RestClient.get(url)
