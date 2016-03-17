@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/home', to: 'static_pages#home'
   post '/', to: 'static_pages#create'
   delete '/home', to: 'static_pages#destroy'
+  root 'static_pages#home'
 
 end

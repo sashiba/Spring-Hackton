@@ -5,10 +5,20 @@
 
 <div class="row">
   <% @weapon.skins.each do |skin| %>
-       <% url = "http://steamcommunity.com/market/priceoverview" %>
+    <div class='col-md-3'>
+    <% url = "http://steamcommunity.com/market/priceoverview" %>
        <% skin_info = RestClient.get(url,{:params => {:country => 'DE', :currency => 1, :appid => 730, :market_hash_name => 'AK-47 | Vulcan (Factory New)'}}) %> 
+       <% market_hash = params[:name].upcase + ' | ' + skin.name + " (Factory New)" %>
+       <% skin_info = RestClient.get(url,{
+         :params => {:country => 'DE',
+                     :currency => 1, :appid => 730,
+                     :market_hash_name => market_hash }}) %>
        <%= image_tag(skin.picture) %>
-       <p> <%= skin.name %>
-     Starting at : <%= JSON::parse(skin_info)['lowest_price'] %></p>
+    </div>
+
+     <div class='col-md-1'>
+       <%= skin.name %>
+       Starting at : <%= JSON::parse(skin_info)['lowest_price'] %>
+     </div>
   <% end %>
 </div>
