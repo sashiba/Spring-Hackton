@@ -1,33 +1,49 @@
+<div class = "row">
+  <div class ='col-md-6'>
+    <h2>Cs:GO news</h2>
+    <% @news_cs.each do |new| %>
+      <p>
+      <h4><%= new['title'] %></h4>
+      <%=  render inline: new['contents'] %><br>
+      <%= link_to "Full article", new['url'] %><br>
+      <%= DateTime.strptime(new['date'].to_s, '%s').to_formatted_s(:long_ordinal) %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class='col-md-6'>
+    <h2>Dota2 news</h2>
+    <% @news_dota.each do |new| %>
+      <p>
+      <h4><%= new['title'] %></h4>
+      <%= render inline: new['contents'] %><br>
+      <%= link_to "Full article", new['url'] %><br>
+      <%= DateTime.strptime(new['date'].to_s, '%s').to_formatted_s(:long_ordinal) %>
+      </p>
+    <% end %>
+  </div>
+</div>
+<br>
+
+<div class='row'>
+  <div class='col-md-4'>
+  Information on current players:
+  <p class='text-center'>
+    cs:go: <%= @current_players_cs %><br>
+    dota2: <%= @current_players_dota %>
+  </p>
+  </div>
+</div>
+
 <% unless session[:steam_id] %>
-  <%= form_tag('/') do %>
-    <%= text_field_tag :steam_id %>
-    <%= submit_tag "Submit" %>
-  <% end %>
+  <div class='row'>
+    <p>Enter your steam id</p>
+      <%= form_tag('/') do %>
+    <div class='form-group'>
+        <%= label_tag :steam_id %>
+         <%= text_field_tag :steam_id %>
+        <%= submit_tag "Submit", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-
-Current cs:go players: <%= @current_players_cs %><br>
-Current dota2 players: <%= @current_players_dota %>
-
-<div>
-  <h2>Cs:GO news</h2>
-  <% @news_cs.each do |new| %>
-    <p>
-    <h4><%= new['title'] %></h4>
-    <%=  render inline: new['contents'] %><br>
-    <%= link_to "Full article", new['url'] %><br>
-    <%= DateTime.strptime(new['date'].to_s, '%s').to_formatted_s(:long_ordinal) %>
-    </p>
-  <% end %>
-</div>
-
-<div>
-  <h2>Dota2 news</h2>
-  <% @news_dota.each do |new| %>
-    <p>
-    <h4><%= new['title'] %></h4>
-    <%= render inline: new['contents'] %><br>
-    <%= link_to "Full article", new['url'] %><br>
-    <%= DateTime.strptime(new['date'].to_s, '%s').to_formatted_s(:long_ordinal) %>
-    </p>
-  <% end %>
-</div>
