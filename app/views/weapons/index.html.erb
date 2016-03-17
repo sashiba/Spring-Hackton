@@ -1,16 +1,14 @@
-<table border="0">
-  <tr>
-    <th>Rifles</th>
-    <th>Knife</th>
-  </tr>
+<div class="row">
+  <%= link_to "Home", home_url %>
+</div>
 
-  <tbody>
-    <% @weapons.each do |weapon| %>
-        <tr>
-          <td>
-        	<A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
-          </td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <h3>Rifles</h3>
+  <% @weapons.each do |weapon| %>
+    <A HREF='<%= "/weapons/#{weapon.name}"%>'><%= image_tag(weapon.picture) %></A>
+  <% end %>
+</div>
+
+<div class="row">
+  <h3>Knife</h3>
+</div>
