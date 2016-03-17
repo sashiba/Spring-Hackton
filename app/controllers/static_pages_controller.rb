@@ -8,8 +8,12 @@ class StaticPagesController < ApplicationController
   end
 
   def create
-    session[:steam_id] = params[:steam_id]
-    redirect_to profile_accounts_url
+    if StaticPage.validate(params[:steam_id])
+      session[:steam_id] = params[:steam_id]
+      redirect_to profile_accounts_url
+    else
+      redirect_to home_url
+    end
   end
 
   def destroy
