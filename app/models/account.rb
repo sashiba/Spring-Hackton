@@ -1,4 +1,7 @@
 class Account
+  include ActiveModel::Model
+
+  attr_accessor :friends, :bans, :recent, :personastate, :summary
 
   API_KEY = '69058F1D9742DD4665510ADA5E8E45A1'
 
